@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* background-attachment: fixed; */
+            background-color: black;
+        }
+        .banner {
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .banner .slider {
+            position: absolute;
+            width: 200px;
+            height: 250px;
+            top: 20%;
+            left: calc(50% - 100px);
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            animation: autoRun 30s linear infinite;
+            /* z-index: 2; */
+        }
+
+        @keyframes autoRun {
+            from {
+                transform: perspective(1000px) rotateX(-15deg) rotateY(360deg);
+            }
+
+            to {
+                transform: perspective(1000px) rotateX(-15deg) rotateY(0deg);
+            }
+        }
+
+        .banner .slider .item {
+            position: absolute;
+            border: 2px solid goldenrod;
+            border-radius: 50px;
+            overflow: hidden;
+            inset: 0 0 0 0;
+            transform:
+                rotateY(calc((var(--position) - 1) * (360 / (-1* var(--quantity))) * 1deg)) translateZ(450px);
+            /* -webkit-box-reflect: below  0px linear-gradient(transparent,transparent,#000400); */
+        }
+        
+        .banner .slider .item img:hover{
+            height: 120%;
+            width: 120%;
+            size: 120%;
+            transition-duration: 1s;
+            /* transform: translate(-50%,-50%); */
+        }
+        
+        .banner .slider .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .close{
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            font-size: 30px;
+            font-family: cursive;
+            color: #634302;
+            /* text-decoration:underline; */
+        }
+        
+        a:visited{
+            color: #634302;
+        }
+        
+        .close:hover{
+            color: #ffc95d;
+            cursor: pointer;
+            text-decoration:none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="banner">
+        <a href="index.html"><div class="close">X</div></a>
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1"><img src="1.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img src="2.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="3.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img src="4.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img src="5.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img src="6.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img src="7.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img src="8.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img src="9.jpg" alt=""></div>
+            <div class="item" style="--position: 10"><img src="10.jpg" alt=""></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
